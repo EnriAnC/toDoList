@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { MatSelectionListChange } from '@angular/material/list';
+import { MatSelectionListChange, MatListOption } from '@angular/material/list';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 interface Task {
   id: number;
@@ -52,7 +53,7 @@ export class TodoListComponent {
 
   onSubmit():void {
     this.tasks.push(this.newTask);
-    this.newTask = { id:1, title: "", description: "", completed:false};
+    this.newTask = { id:new Date().valueOf(), title: "", description: "", completed:false};
   }
 
   onSelectionChange(event: MatSelectionListChange) {
@@ -68,7 +69,11 @@ export class TodoListComponent {
       }
       return o.value.completed
     });
-    console.log('Selected items:', selected[0]);
   }
-  
+
+  drop(event: CdkDragDrop<string[]>) {
+    console.log(event)
+    if (this.tasks) moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+    if (this.tasksCompleted) moveItemInArray(this.tasksCompleted, event.previousIndex, event.currentIndex);
+  }
 }

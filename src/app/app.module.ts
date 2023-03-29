@@ -22,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatListModule,
     MatCardModule,
     MatButtonToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
