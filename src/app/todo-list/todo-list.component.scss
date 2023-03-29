@@ -1,9 +1,19 @@
 .todo-list{
-    background-color: bisque;
     display: flex;
     justify-content: center;
-    ul{
-        list-style: none;
-        padding: 0;
+    >div{
+        max-width: 100%;
+        min-width: 50%;
     }
+}
+
+.full-width{
+    width: 100%;
+    mat-button-toggle{
+        width: 50%;
+    }
+}
+
+.text-center{
+    text-align: center;
 }
