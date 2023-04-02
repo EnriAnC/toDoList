@@ -8,7 +8,7 @@ import LoginData from '../models/login-data.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://msvc-loginregister-eanc.up.railway.app/';
+  private apiUrl = 'https://msvc-loginregister-eanc.up.railway.app';
 
   constructor(private http: HttpClient) { }
 
