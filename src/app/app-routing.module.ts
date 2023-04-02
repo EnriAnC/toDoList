@@ -5,11 +5,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/todos'},
-  { path: 'todos', component: TodoListComponent },
+  { path: '', redirectTo: '/todos', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: '' }
+  { path: 'todos', component: TodoListComponent },
+  { path: '**', redirectTo: '/todos'},
 ];
 
 @NgModule({
