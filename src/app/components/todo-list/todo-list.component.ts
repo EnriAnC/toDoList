@@ -2,6 +2,10 @@ import { Component, Input } from '@angular/core';
 import { MatSelectionListChange, MatListOption } from '@angular/material/list';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
+import { configureStore } from '@reduxjs/toolkit';
+import { addTask, deleteTask, updateTask } from '../../store/reducers/todoListSlice';
+import { store } from '../../store/store';
+
 interface Task {
   id: number;
   title: string;
@@ -49,11 +53,15 @@ export class TodoListComponent {
 
   }
 
+  store = store
+
   newTask: Task = { id:1, title: "", description: "", completed:false };
 
   onSubmit():void {
     this.tasks.push(this.newTask);
     this.newTask = { id:new Date().valueOf(), title: "", description: "", completed:false};
+    this.store.dispatch(addTask({id:new Date().valueOf(), title: "", description: "", completed:false}))
+    console.log(this.store)
   }
 
   onSelectionChange(event: MatSelectionListChange) {

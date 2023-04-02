@@ -5,15 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TaskComponent } from './todo-list/task/task.component';
-import { TaskFilterComponent } from './task-filter/task-filter.component';
-import { TaskSearchComponent } from './task-search/task-search.component';
-import { ListStatisticsComponent } from './list-statistics/list-statistics.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TaskComponent } from './components/todo-list/task/task.component';
 import { NotifyComponent } from './notify/notify.component';
-import { TaskConfigComponent } from './task-config/task-config.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule  } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -22,7 +18,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,12 +31,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AppComponent,
     TodoListComponent,
     TaskComponent,
-    TaskFilterComponent,
-    TaskSearchComponent,
-    ListStatisticsComponent,
     NotifyComponent,
-    TaskConfigComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,13 +42,16 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AppRoutingModule,
     FormsModule,
     MatButtonModule,
+    MatToolbarModule,
     MatInputModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
     MatButtonToggleModule,
     MatTabsModule,
-    DragDropModule
+    DragDropModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
