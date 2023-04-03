@@ -3,7 +3,8 @@
       <a routerLink="/" class="logo">My Website</a>
       <span class="spacer"></span>
       <button mat-button routerLink="/todos">Home</button>
-      <button mat-button routerLink="/login">Login</button>
-      <button mat-button routerLink="/register">Register</button>
+      <button *ngIf="!isLoggedIn" mat-button routerLink="/login">Login</button>
+      <button  *ngIf="!isLoggedIn" mat-button routerLink="/register">Register</button>
+      <button  *ngIf="isLoggedIn" mat-button (click)="onLogout()">Cerrar sesión</button>
     </mat-toolbar-row>
   </mat-toolbar>
